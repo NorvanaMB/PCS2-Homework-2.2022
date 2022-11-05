@@ -1,1 +1,200 @@
+#Algorithms/ Strings 
+Hackerrank : @mohamed_1906874
+1) Mars Exploration 
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'marsExploration' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def marsExploration(s):
+    res = 0
+    for ind in range(0, len(s), 3):
+        if s[ind] != 'S':
+            res += 1
+        if s[ind+1] != 'O':
+            res += 1
+        if s[ind+2] != 'S':
+            res += 1
+            
+    return res
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = marsExploration(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+2)Gemstones
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'gemstones' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING_ARRAY arr as parameter.
+#
+
+def gemstones(arr):
+    minerals = [set(i) for i in arr]
+    return len(set.intersection(*minerals))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr_item = input()
+        arr.append(arr_item)
+
+    result = gemstones(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+3)CamelCase
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'camelcase' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def camelcase(s):
+     res = 1
+     for let in s:
+        if let.isupper():
+            res += 1
+
+     if not s:
+        res = 0
+
+     return res
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = camelcase(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+4)Strong Password
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'minimumNumber' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. STRING password
+#
+
+def minimumNumber(n, password):
+    numbers = "0123456789"
+    lower_case = "abcdefghijklmnopqrstuvwxyz"
+    upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    special_characters = "!@#$%^&*()-+"
+
+    count = 0    
+    if any(i.isdigit() for i in password) == False:
+        count += 1
+    if any(i.islower() for i in password) == False:
+        count += 1
+    if any(i.isupper() for i in password) == False:
+        count += 1
+    if any(i in special_characters for i in password) == False:
+        count+=1
+    return max(count,6-n)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    password = input()
+
+    answer = minimumNumber(n, password)
+
+    fptr.write(str(answer) + '\n')
+
+    fptr.close()
+    
+    
+  5)The Love-Letter Mystery
+  
+  import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'theLoveLetterMystery' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def theLoveLetterMystery(s):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    rev = s[::-1]
+    ans = 0
+    for i in range(len(s) // 2):
+        op1 = s[i]
+        op2 = rev[i]
+        pos1 = alphabet.find(op1)
+        pos2 = alphabet.find(op2)
+        ans += abs(pos1 - pos2)
+    return ans
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = theLoveLetterMystery(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
 

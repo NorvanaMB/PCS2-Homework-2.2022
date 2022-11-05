@@ -1,4 +1,4 @@
-#Algorithms 
+#Algorithms / Sortings
 Hackerranck : @mohamed_1906874
 
 1)Closest Numbers
@@ -320,7 +320,39 @@ if __name__ == '__main__':
 
     fptr.close()
     
-10)Lily's homewrok
+10)Find the median 
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'findMedian' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def findMedian(arr):
+    arr.sort()
+    return arr[n//2] 
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = findMedian(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
 
 
 
